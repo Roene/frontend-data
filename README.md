@@ -55,6 +55,7 @@ Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om 
 * Bubble chart
 
 *13-11-2018 Ik ben nog meer charts aan het zoeken voor inspiratie*
+
 Tof voorbeeld voor een [interactieve sunburst](https://beta.observablehq.com/@mbostock/d3-zoomable-sunburst)
 
 ## Observable

@@ -42,11 +42,18 @@ Dit project maakt gebruik van de volgende packages :
 
 ## Schetsen
 ✏️📐📏
-Nog ff schetsen maken en dan toevoegen hier enzo
+
+![schets1](images/schets1.JPG)
+> Sunburst en bubble chart 
+
+![schets2](images/schets2.JPG)
+> Sunburst uitgewerkt
 
 ## Ideeën
 Mijn eerste idee was om autheurs te gaan gebruiken voor de visualisatie. Wanneer de gebruiker hierop klikt krijgt hij zij de genres te zien van de autheur. Klikt de gebruiker op een genre dan krijgt hij de boeken van de bepaalde autheur. 
+
 *Na de feedback van Bas Pieren op 12-11-2018 kwam ik tot een nieuw inzicht om dit andersom te gaan doen* 
+
 Ik wil genres gaan gebruiken voor mijn visualisatie, wanneer de gebruiker hierop klikt moet hij/zij de autheurs binnen dit genre kunnen zien. Vervolgens wil ik dat als de gebruiker op de autheur klikt hij/zij de boeken te zien krijgt van deze autheur binnen een genre.
 
 ## Interessante charts

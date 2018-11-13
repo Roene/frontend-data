@@ -43,10 +43,10 @@ Dit project maakt gebruik van de volgende packages :
 ## Schetsen
 ✏️📐📏
 
-![schets1](images/schets1.JPG)
+![schets1](images/schets1.jpg)
 > Sunburst en bubble chart 
 
-![schets2](images/schets2.JPG)
+![schets2](images/schets2.jpg)
 > Sunburst uitgewerkt
 
 ## Ideeën

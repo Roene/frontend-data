@@ -13,12 +13,9 @@ Deze repo is voor het project frontend data. Hierin ga ik een interactieve datav
 
 ## To-Do
 
-- [X] 
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [X] Data ophalen uit de oba api
+- [] Statische visualisatie maken met D3
+- [] Interactie toevoegen aan de visualisatie
 
 ## Instalatie
 Om dit project te installeren ga je naar je *terminal* en voer je dit uit : 

@@ -13,14 +13,12 @@ Deze repo is voor het project frontend data. Hierin ga ik een interactieve datav
 
 ## To-Do
 
-- [X] Hello API.
-- [X] What the 🐒 zit er in de API? Krijg een idee van de informatie die je uit de API kan halen.
-- [X] Verzin onderzoeksvragen.
-- [X] Verzin deelvragen.
-- [X] Bedenk welke variablen je nodig gaat hebben om je vraag te beantwoorden.
-- [X] Haal deze data uit de API en sla die op in jouw eigen "datastore".
-- [X] Doorzoek die data op patronen
-- [ ] Visualiseer de patronen met D3
+- [X] 
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 
 ## Instalatie
 Om dit project te installeren ga je naar je *terminal* en voer je dit uit : 

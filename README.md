@@ -41,9 +41,7 @@ Ik wil genres gaan gebruiken voor mijn visualisatie, wanneer de gebruiker hierop
 
 *14-11-2018 Feedback van Laurens, Jesse & Loc*
 
-Mijn idee was nog niet zo concreet en niet zo interessant. Aangezien er boeken met een 2 genres zijn kwam Laurens met het idee om de 5 genres tegen elkaar uit te zetten, zodat je kunt zien hoe deze genres bij elkaar horen dus bijvoorbeeld thriller ten opzichte van romantiek. Dit zou je kunnen visualiseren door een 
-[Chord-diagram](https://beta.observablehq.com/@mbostock/d3-chord-diagram) te gebruiken. 
-Met dit concept ga ik dan ook verder. 
+Mijn idee wat hierboven staat was nog niet zo concreet en niet zo interessant. Aangezien er boeken met meerdere genres zijn kwam Laurens met het idee om de 5 genres tegen elkaar uit te zetten, zodat je kunt zien hoe deze genres bij elkaar horen dus bijvoorbeeld thriller ten opzichte van romantiek. Dit zou je kunnen visualiseren door een [Chord-diagram](https://beta.observablehq.com/@mbostock/d3-chord-diagram) te gebruiken. Met dit concept ga ik dan ook door.  
 
 ## Interessante charts
 Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om de visualisatie interactief te maken.

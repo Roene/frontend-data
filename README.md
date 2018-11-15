@@ -63,6 +63,8 @@ Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om 
 
 Tof voorbeeld voor een [interactieve sunburst](https://beta.observablehq.com/@mbostock/d3-zoomable-sunburst)
 
+Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://projects.delimited.io/experiments/chord-transitions/demos/trade.html)
+
 ## Schetsen
 ✏️📐📏
 

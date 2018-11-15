@@ -18,6 +18,7 @@ Tijdens dit project wil ik de volgende dingen gaan doen.
 - [X] Data ophalen uit de oba api
 - [X] Bedenken wat ik wil gaan visualiseren
 - [ ] Statische visualisatie maken met D3
+- [ ] Juiste data toevoegen aan deze statische visualisatie
 - [ ] Interactie toevoegen aan de visualisatie
 
 ## Instalatie
@@ -48,7 +49,7 @@ De genres die ik wil gaan gebruiken zijn :
 * Thriller
 * Detective
 * Romantisch verhaal
-* Sience fiction 
+* Science fiction 
 
 *15-11-2018 Voorbeelden*
 Ik ben gaan kijken naar voorbeelden van chord diagrams, vervolgens ben ik gaan kijken of ik deze werkend kreeg. Dit [voorbeeld](http://blockbuilder.org/mbostock/4062006) heb ik werkend gekregen.

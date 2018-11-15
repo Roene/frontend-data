@@ -50,10 +50,14 @@ De genres die ik wil gaan gebruiken zijn :
 * Romantisch verhaal
 * Sience fiction 
 
+*15-11-2018 Voorbeelden*
+Ik ben gaan kijken naar voorbeelden van chord diagrams, vervolgens ben ik gaan kijken of ik deze werkend kreeg. Dit [voorbeeld](http://blockbuilder.org/mbostock/4062006) heb ik werkend gekregen.
+
 ## Interessante charts
 Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om de visualisatie interactief te maken.
 * Sunburst chart 📊
 * Bubble chart
+* Chord diagram (na feedback op 14-11-2018)
 
 *13-11-2018 Ik ben nog meer charts aan het zoeken voor inspiratie*
 

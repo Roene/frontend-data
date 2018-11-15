@@ -19,7 +19,7 @@ const client = new OBA({
 client.get('search', {
   q: 'thriller',
   sort: 'year',
-  facet: ['genre(thriller)', 'type(book)'],
+  facet: ['genre(sport)', 'type(book)'],
   refine: true,
   librarian: true,
   page: 1

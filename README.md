@@ -51,6 +51,8 @@ De genres die ik wil gaan gebruiken zijn :
 * Romantisch verhaal
 * Science fiction 
 
+Dit zijn de grootste 5 genres van de OBA. 
+
 *15-11-2018 Voorbeelden*
 Ik ben gaan kijken naar voorbeelden van chord diagrams, vervolgens ben ik gaan kijken of ik deze werkend kreeg. Dit [voorbeeld](http://blockbuilder.org/mbostock/4062006) heb ik werkend gekregen.
 
@@ -74,6 +76,9 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 
 ![schets2](images/schets2.jpg)
 > Sunburst uitgewerkt
+
+![schets3](images/schets3.jpg)
+> 1e Chord diagram
 
 ## Probelemen
 * Wat wil ik visualiseren?

@@ -85,6 +85,9 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 ![schets3](images/schets3.jpg)
 > 1e Chord diagram
 
+![schets4](images/schets4.jpg)
+> 2e Chord diagram
+
 ## Probelemen
 * Wat wil ik visualiseren?
 * Wat wil ik dat de gebruiker uit de data visualisatie kan halen zodat hij/zij de data kan gaan ontdekken?

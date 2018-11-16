@@ -56,6 +56,11 @@ Dit zijn de grootste 5 genres van de OBA.
 *15-11-2018 Voorbeelden*
 Ik ben gaan kijken naar voorbeelden van chord diagrams, vervolgens ben ik gaan kijken of ik deze werkend kreeg. Dit [voorbeeld](http://blockbuilder.org/mbostock/4062006) heb ik werkend gekregen.
 
+*15-11-2018 Feedback*
+Aan het einde van deze dag hebben we het idee gepitcht aan de klas. Ik had nog geen idee van welke interactie ik ga gebruiken, vanuit de klas kreeg ik tips om bijvoorbeeld extra genres toe te voegen of andere jaren te selecteren ipv alles.
+
+Ik ga als interactie toevoegen dat gebruikers andere jaren kunnen selecteren. 
+
 ## Interessante charts
 Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om de visualisatie interactief te maken.
 * Sunburst chart 📊

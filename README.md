@@ -95,6 +95,10 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 * Welke charts vind ik zelf interessant / leip om te maken?
 * Wat zijn interessante patronen om te gebruiken?
 
+*Andere probelemen :*
+* Hoe ga ik de chord diagram maken ? 😨😨😨
+* Hoe ga ik interactie toevoegen? 😨😨😨
+
 ## Observable
 
 ## Shout outs

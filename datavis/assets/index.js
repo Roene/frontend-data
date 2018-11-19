@@ -42,7 +42,9 @@ var group = g.append("g")
 group.append("path")
     .style("fill", function(d) { return color(d.index); })
     .style("stroke", function(d) { return d3.rgb(color(d.index)).darker(); })
-    .attr("d", arc);
+    .attr("d", arc)
+    .on("mouseover", fade(.1))         /* Where attempt at mouseover is made */
+    .on("mouseout", fade(1));
 
 var groupTick = group.selectAll(".group-tick")
   .data(function(d) { return groupTicks(d, 1e3); })
@@ -51,7 +53,11 @@ var groupTick = group.selectAll(".group-tick")
     .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + outerRadius + ",0)"; });
 
 groupTick.append("line")
-    .attr("x2", 6);
+    .attr("x1", 1)
+    .attr("y1", 0)
+    .attr("x2", 5)
+    .attr("y2", 0)
+    .style("stroke", "#000")
 
 groupTick
   .filter(function(d) { return d.value % 5e3 === 0; })
@@ -62,7 +68,7 @@ groupTick
     .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
     .text(function(d) { return formatValue(d.value); });
 
-g.append("g")
+var ribbons = g.append("g")
     .attr("class", "ribbons")
   .selectAll("path")
   .data(function(chords) { return chords; })
@@ -77,4 +83,15 @@ function groupTicks(d, step) {
   return d3.range(0, d.value, step).map(function(value) {
     return {value: value, angle: value * k + d.startAngle};
   });
+}
+
+function fade(opacity) {
+  return function(d, i) {
+    ribbons
+        .filter(function(d) {
+          return d.source.index != i && d.target.index != i;
+        })
+      .transition()
+        .style("opacity", opacity);
+  };
 }

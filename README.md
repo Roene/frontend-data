@@ -96,6 +96,7 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 * Wat zijn interessante patronen om te gebruiken?
 
 *Andere probelemen :*
+* Hoe haal ik alle boeken op uit een bepaald genreee?
 * Hoe ga ik de chord diagram maken ? 😨😨😨
 * Hoe ga ik interactie toevoegen? 😨😨😨
 
@@ -104,6 +105,7 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 ## Shout outs
 🙏🏻 Special thanks naar deze mensen die mij hebben geholpen tijdens dit project. 🙏🏻
 * [Bas Pieren](https://github.com/BasPieren) voor het halen van ☕
+* [Daniel van de Velde](https://github.com/DanielvandeVelde) Voor de readme over de OBA api
 
 ## Licentie
 [MIT](https://choosealicense.com/licenses/mit/) © [Roene Verbeek](https://github.com/Roene)

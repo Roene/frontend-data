@@ -17,33 +17,29 @@ const client = new OBA({
 
 // Example search to the word 'rijk' sorted by title:
 client.get('search', {
-  q: 'thriller',
-  sort: 'year',
-  facet: ['genre(sport)', 'type(book)'],
+  q: 'format:book',
   refine: true,
-  librarian: true,
-  page: 1
+  librarian: true
 })
-
-// Bron code van Laurens | 31-10-2018 | College
   .then(results => JSON.parse(results))
   .then(results => {
-    var myData = getKeys(results)
-  })
-
-function getKeys(data){
-  var myData = data.aquabrowser.results.result.map(e => {  
-    return {
-      TITEL: e.titles['short-title'].$t,
-      PUBLICATIE: e.publication? parseInt(e.publication.year.$t, 10) : "GEEN PUBLICATIE DATUM",
-      AUTHEUR: e.authors? e.authors['main-author'].$t : "GEEN AUTHEUR",
-      PAGES: e.description ? parseInt(e.description['physical-description']['$t'].match(/\d+/g).map(Number),10): 0,
-      TYPE: e.formats? e.formats.format.$t : "TYPE ONBEKEND",
-      // Bron Jesse Dijkman
-      GENRE: e.genres? e.genres.genre.length > 1? e.genres.genre.map(x => x.$t) : e.genres.genre.$t : "GEEN GENRE", 
-      // Einde bron Jesse Dijkman     
-    }
-  })
-  console.log(myData)
-}
-// Einde bron Laurens
+    client
+      .get("refine", {
+        rctx:
+          "AWNkYOZmYGcwzDfMKiouLTY1TKooNUrLLkzNLEysKMnIZGZk4MxNzMxjYGYQT8svyk0ssUrKz8@mBBGMzNKZ8UWpycUFqUUFiemprEYGTAwPzjHeKr9VznSvj4lR40gGIwMDe35SIgMDg6J$UX5$iX5OZmFpZoo$UIy9tCiHgTUvhxEA",
+        count: 100
+      })
+      .then(response => JSON.parse(response))
+      .then(response => {
+        let metadata = response.aquabrowser.facets.facet;
+        let genre_object = [];
+        let genreCounts = metadata.find(item => item.id == "Genre").value;
+        genreCounts = genreCounts.map(genre => {
+          return {
+            count: genre.count,
+            genre: genre.id
+          };
+        });
+        console.log(genreCounts);
+      });
+    });

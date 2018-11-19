@@ -1,4 +1,4 @@
-var matrix = [
+var data = [
     [11975, 5871, 8916, 2868],
     [1951, 10048, 2060, 6171],
     [8010, 16145, 8090, 8045],
@@ -30,7 +30,7 @@ var color = d3.scaleOrdinal()
 
 var g = svg.append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-    .datum(chord(matrix));
+    .datum(chord(data));
 
 var group = g.append("g")
     .attr("class", "groups")

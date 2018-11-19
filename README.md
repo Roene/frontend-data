@@ -96,16 +96,20 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 * Wat zijn interessante patronen om te gebruiken?
 
 *Andere probelemen :*
-* Hoe haal ik alle boeken op uit een bepaald genreee?
+* Hoe haal ik alle boeken op uit een bepaald genre?
 * Hoe ga ik de chord diagram maken ? 😨😨😨
 * Hoe ga ik interactie toevoegen? 😨😨😨
+
+*19-11-2018*
+* Ik heb nu het totaal aantal boeken per genre. Nu moet ik nog zien te fixen dat ik het totaal aantal boeken met dubbele genres ophaal dus bijvoorbeeld thriller & sciencefiction.
 
 ## Observable
 
 ## Shout outs
 🙏🏻 Special thanks naar deze mensen die mij hebben geholpen tijdens dit project. 🙏🏻
-* [Bas Pieren](https://github.com/BasPieren) voor het halen van ☕
-* [Daniel van de Velde](https://github.com/DanielvandeVelde) Voor de readme over de OBA api
+* [Bas Pieren](https://github.com/BasPieren) Voor het halen van ☕.
+* [Daniel van de Velde](https://github.com/DanielvandeVelde) Voor de readme over de OBA api.
+* [Sterre van Geest](https://github.com/sterrevangeest/frontend-data/blob/master/data/index.js) Voor de code om totaal aantal boeken per genre op te halen. 
 
 ## Licentie
 [MIT](https://choosealicense.com/licenses/mit/) © [Roene Verbeek](https://github.com/Roene)

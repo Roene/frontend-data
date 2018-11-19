@@ -7,7 +7,8 @@ Deze repo is voor het project frontend data. Hierin ga ik een interactieve datav
 * [Ideeën](#ideeën)
 * [Schetsen](#schetsen)
 * [Problemen](#problemen)
-* [Observable](#observable)
+* [Werking](#werking)
+* [Visualisatie](#visualisatie)
 * [Shout outs](#shout-outs)
 * [Licentie](#licentie)
 
@@ -101,9 +102,26 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 * Hoe ga ik interactie toevoegen? 😨😨😨
 
 *19-11-2018*
-* Ik heb nu het totaal aantal boeken per genre. Nu moet ik nog zien te fixen dat ik het totaal aantal boeken met dubbele genres ophaal dus bijvoorbeeld thriller & sciencefiction.
+* Ik heb nu het totaal aantal boeken per genre. Nu moet ik nog zien te fixen dat ik het totaal aantal boeken met dubbele genres opgehaald en in de json file gezet. 
 
-## Observable
+## Werking
+Ik ben erachter gekomen hoe ik de data in kan laden : 
+```js
+var data = [
+  [9962, 1196, 94, 93, 18],
+  [1196, 9102, 11, 343, 169],
+  [94, 11, 7143, 138, 32],
+  [93, 343, 138, 6440, 75],
+  [18, 169, 32, 75, 4886]
+]
+``` 
+Dit zijn gegevens van de boeken je kan het zo het makkelijkste uitlezen :
+![Matrix](images/matrix.PNG)
+
+Zoals je hier ziet is de groene cel naar zichzelf, de rest is steeds naar een ander genre. Als je alles bij elkaar optelt kom je bij het totaal van de boeken uit. 
+
+
+## Visualisatie
 
 ## Shout outs
 🙏🏻 Special thanks naar deze mensen die mij hebben geholpen tijdens dit project. 🙏🏻

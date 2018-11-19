@@ -21,6 +21,7 @@ client.get('search', {
   refine: true,
   librarian: true
 })
+  // Bron Sterre van Geest
   .then(results => JSON.parse(results))
   .then(results => {
     client

@@ -6,6 +6,8 @@ var data = [
   [18, 169, 32, 75, 4886]
 ]
 
+var genres = ["Psychologischverhaal", "Thriller", "Detective", "Romantischverhaal", "Sciencefiction"]
+
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height"),
@@ -42,9 +44,22 @@ var group = g.append("g")
 group.append("path")
     .style("fill", function(d) { return color(d.index); })
     .style("stroke", function(d) { return d3.rgb(color(d.index)).darker(); })
+    .attr("id", function(d, i) { return "group" + d.index; })
     .attr("d", arc)
     .on("mouseover", fade(.1))         /* Where attempt at mouseover is made */
     .on("mouseout", fade(1));
+
+group.append("title").text(function(d) {
+        return groupTip(d);
+    });
+
+group.append("text")
+         .attr("x", 6)
+        .attr("dy", 15)
+      .append("textPath")
+        .attr("xlink:href", function(d) { return "#group" + d.index; })
+        .text(function(chords, i){return genres[i];})
+        .style("fill", "white");
 
 var groupTick = group.selectAll(".group-tick")
   .data(function(d) { return groupTicks(d, 1e3); })
@@ -60,7 +75,7 @@ groupTick.append("line")
     .style("stroke", "#000")
 
 groupTick
-  .filter(function(d) { return d.value % 5e3 === 0; })
+  .filter(function(d) { return d.value % 1e3 === 0; })
   .append("text")
     .attr("x", 8)
     .attr("dy", ".35em")
@@ -75,7 +90,8 @@ var ribbons = g.append("g")
   .enter().append("path")
     .attr("d", ribbon)
     .style("fill", function(d) { return color(d.target.index); })
-    .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); });
+    .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); })
+
 
 // Returns an array of tick angles and values for a given group and step.
 function groupTicks(d, step) {
@@ -95,3 +111,8 @@ function fade(opacity) {
         .style("opacity", opacity);
   };
 }
+
+function groupTip(d) {
+        var q = d3.formatPrefix(",.0", 1e1)
+        return "Totaal aantal boeken met het genre " + genres[d.index] + ":\n" + q(d.value)
+    }

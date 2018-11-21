@@ -62,6 +62,9 @@ Aan het einde van deze dag hebben we het idee gepitcht aan de klas. Ik had nog g
 
 Ik ga als interactie toevoegen dat gebruikers andere jaren kunnen selecteren. 
 
+*19-11-2018*
+Omdat ik niet de boeken ophaal met jaar maar alleen het totaal aantal in een bepaald genre ga ik niks met jaar en internactie doen, maar wil ik de gebruiker een mogelijkheid geven om een extra genre toevoegen (verhalenbundel).
+
 ## Interessante charts
 Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om de visualisatie interactief te maken.
 * Sunburst chart 📊
@@ -102,7 +105,7 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 * Hoe ga ik interactie toevoegen? 😨😨😨
 
 *19-11-2018*
-* Ik heb nu het totaal aantal boeken per genre. Nu moet ik nog zien te fixen dat ik het totaal aantal boeken met dubbele genres opgehaald en in de json file gezet. 
+* Ik heb nu het totaal aantal boeken per genre en het aantal boeken met dubbele genre.
 
 ## Werking
 Ik ben erachter gekomen hoe ik de data in kan laden : 
@@ -118,8 +121,7 @@ var data = [
 Dit zijn gegevens van de boeken je kan het zo het makkelijkste uitlezen :
 ![Matrix](images/matrix.PNG)
 
-Zoals je hier ziet is de groene cel naar zichzelf, de rest is steeds naar een ander genre. Als je alles bij elkaar optelt kom je bij het totaal van de boeken uit. 
-
+Zoals je hier ziet is de groene cel naar zichzelf, de rest is steeds naar een ander genre. Als je alles bij elkaar optelt kom je bij het totaal van de boeken uit van dit bepaalde genre. 
 
 ## Visualisatie
 

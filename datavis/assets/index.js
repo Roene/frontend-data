@@ -28,7 +28,6 @@ var ribbon = d3.ribbon()
     .radius(innerRadius);
 
 var color = d3.scaleOrdinal()
-    .domain(d3.range(4))
     .range(["#ed0b0b", "#03aa24", "#f2ae04", "#1f03f1", "#e1ed04"]);
 
 var g = svg.append("g")
@@ -46,7 +45,7 @@ group.append("path")
     .style("stroke", function(d) { return d3.rgb(color(d.index)).darker(); })
     .attr("id", function(d, i) { return "group" + d.index; })
     .attr("d", arc)
-    .on("mouseover", fade(.1))         /* Where attempt at mouseover is made */
+    .on("mouseover", fade(.1)) 
     .on("mouseout", fade(1));
 
 group.append("title").text(function(d) {
@@ -59,7 +58,7 @@ group.append("text")
       .append("textPath")
         .attr("xlink:href", function(d) { return "#group" + d.index; })
         .text(function(chords, i){return genres[i];})
-        .style("fill", "white");
+        .style("fill", "black");
 
 var groupTick = group.selectAll(".group-tick")
   .data(function(d) { return groupTicks(d, 1e3); })
@@ -92,6 +91,9 @@ var ribbons = g.append("g")
     .style("fill", function(d) { return color(d.target.index); })
     .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); })
 
+ribbons.append("title").
+    text(function(d){return chordTip(d);});
+
 
 // Returns an array of tick angles and values for a given group and step.
 function groupTicks(d, step) {
@@ -112,7 +114,13 @@ function fade(opacity) {
   };
 }
 
+function chordTip(d){
+  var q = d3.formatPrefix(",.0", 1e1)
+     return "Aantal boeken met genres:\n"
+        + genres[d.target.index] + " en " + genres[d.source.index] + ": " + q(d.source.value);
+}
+
 function groupTip(d) {
         var q = d3.formatPrefix(",.0", 1e1)
         return "Totaal aantal boeken met het genre " + genres[d.index] + ":\n" + q(d.value)
-    }
+}

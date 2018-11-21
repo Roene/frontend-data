@@ -18,8 +18,8 @@ Tijdens dit project wil ik de volgende dingen gaan doen.
 
 - [X] Data ophalen uit de oba api
 - [X] Bedenken wat ik wil gaan visualiseren
-- [ ] Statische visualisatie maken met D3
-- [ ] Juiste data toevoegen aan deze statische visualisatie
+- [X] Statische visualisatie maken met D3
+- [X] Juiste data toevoegen aan deze statische visualisatie
 - [ ] Interactie toevoegen aan de visualisatie
 
 ## Instalatie
@@ -64,6 +64,14 @@ Ik ga als interactie toevoegen dat gebruikers andere jaren kunnen selecteren.
 
 *19-11-2018*
 Omdat ik niet de boeken ophaal met jaar maar alleen het totaal aantal in een bepaald genre ga ik niks met jaar en internactie doen, maar wil ik de gebruiker een mogelijkheid geven om een extra genre toevoegen (verhalenbundel).
+
+*21-11-2018*
+Na een kort gesprek met Laurens heb ik het idee voor de interactie aanpassen. De eerst chort is een totaal overzicht :
+![view1](images/view1.PNG)
+> Totaal overzicht
+
+![view2](images/view2.PNG)
+> Alleen dubbele genres
 
 ## Interessante charts
 Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om de visualisatie interactief te maken.

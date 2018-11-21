@@ -50,10 +50,10 @@ group.append("path")
 
 group.append("title").text(function(d) {
         return groupTip(d);
-    });
+});
 
 group.append("text")
-         .attr("x", 6)
+        .attr("x", 6)
         .attr("dy", 15)
       .append("textPath")
         .attr("xlink:href", function(d) { return "#group" + d.index; })
@@ -117,10 +117,11 @@ function fade(opacity) {
 function chordTip(d){
   var q = d3.formatPrefix(",.0", 1e1)
      return "Aantal boeken met genres:\n"
-        + genres[d.target.index] + " en " + genres[d.source.index] + ": " + q(d.source.value);
+        + genres[d.target.index] + " en " + genres[d.source.index] + ": " + q(d.source.value)
 }
 
 function groupTip(d) {
         var q = d3.formatPrefix(",.0", 1e1)
         return "Totaal aantal boeken met het genre " + genres[d.index] + ":\n" + q(d.value)
 }
+

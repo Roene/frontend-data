@@ -16,13 +16,17 @@
 
 <body>
 <h1>Boeken met enkele & dubbele genres</h1>
-<button id="doubleGenre">Alleen dubbele genres</button>
-<button id="reset">Reset</button>
+<p> In deze visualisatie zijn de grootste 5 genres tegen elkaar uitgezet, <br>
+	in de eerste visualisatie zijn alle boeken te zien van deze genres en hoe deze met elkaar verbonden zijn<br>
+	dus ook met zichzelf (1 genre).<br>
+	In de 2e visualisatie is alleen het aantal boeken te zien met 2 genres.</p>
+<button onclick="update()" id="doubleGenre">Alleen dubbele genres</button>
+<button onclick="update()" id="reset">Reset</button>
 
 <svg width="960" height="900"></svg>
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="assets/index.js"></script>
+<script src="assets/index1.js"></script>
 
 </body>
 </html>

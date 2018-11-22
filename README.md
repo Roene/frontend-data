@@ -21,7 +21,7 @@ Tijdens dit project wil ik de volgende dingen gaan doen.
 - [X] Bedenken wat ik wil gaan visualiseren
 - [X] Statische visualisatie maken met D3
 - [X] Juiste data toevoegen aan deze statische visualisatie
-- [ ] Interactie toevoegen aan de visualisatie
+- [X] Interactie toevoegen aan de visualisatie *is deels gelukt*
 
 ## Instalatie
 Om dit project te installeren ga je naar je *terminal* en voer je dit uit : 
@@ -117,7 +117,7 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 * Ik heb nu het totaal aantal boeken per genre en het aantal boeken met dubbele genre.
 
 *22-11-2018*
-Ik heb interactie kunnen toevoegen alleen werken de ticks nu niet meer 😥😥
+* Ik heb interactie kunnen toevoegen alleen werken de ticks nu niet meer 😥😥
 
 ## Werking
 Ik ben erachter gekomen hoe ik de data in kan laden : 
@@ -158,7 +158,7 @@ De visualisatie is [hier](https://roene.github.io/frontend-data/datavis/) te vin
 De volgende bronnen heb ik gebruikt voor dit project :
 * Project is gebasseerd op [chord diagram](https://beta.observablehq.com/@mbostock/d3-chord-diagram)
 * Voor het begrijpen van de [matrix tabel](https://www.delimited.io/blog/2013/12/8/chord-diagrams-in-d3) zie afbeelding *Table of Hair Color Data*
-* Voorbeelden waar ik delen van heb gebruikt, [voorbeeld 1](https://jsfiddle.net/rjonean4/) [voorbeeld 2](https://jsfiddle.net/wcat76y1/5/)
+* Voorbeelden waar ik delen van heb gebruikt, [voorbeeld 1](https://jsfiddle.net/rjonean4/) & [voorbeeld 2](https://jsfiddle.net/wcat76y1/5/)
 * Documentatie van de [Oba api](https://zoeken.oba.nl/api/v1/) 
 
 ## Licentie

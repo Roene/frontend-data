@@ -10,6 +10,7 @@ Deze repo is voor het project frontend data. Hierin ga ik een interactieve datav
 * [Werking](#werking)
 * [Visualisatie](#visualisatie)
 * [Shout outs](#shout-outs)
+* [Bronnen](#bronnen)
 * [Licentie](#licentie)
 
 ## To-Do
@@ -115,6 +116,9 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 *19-11-2018*
 * Ik heb nu het totaal aantal boeken per genre en het aantal boeken met dubbele genre.
 
+*22-11-2018*
+Ik heb interactie kunnen toevoegen alleen werken de ticks nu niet meer 😥😥
+
 ## Werking
 Ik ben erachter gekomen hoe ik de data in kan laden : 
 ```js
@@ -131,13 +135,31 @@ Dit zijn gegevens van de boeken je kan het zo het makkelijkste uitlezen :
 
 Zoals je hier ziet is de groene cel naar zichzelf, de rest is steeds naar een ander genre. Als je alles bij elkaar optelt kom je bij het totaal van de boeken uit van dit bepaalde genre. 
 
+Om de update te updaten heb ik een 2e matrix tabel gemaakt. Er moet een nullen ingezet worden om hem vierkant te houden, hierdoor verwijder je de chords naar zichzelf (zie afbeelding totaal overzicht).
+```js
+var dataUpdate = [
+  [0, 1196, 94, 93, 18],
+  [1196, 0, 11, 343, 169],
+  [94, 11, 0, 138, 32],
+  [93, 343, 138, 0, 75],
+  [18, 169, 32, 75, 0],
+]
+```
 ## Visualisatie
+De visualisatie is [hier](https://roene.github.io/frontend-data/datavis/) te vinden.
 
 ## Shout outs
 🙏🏻 Special thanks naar deze mensen die mij hebben geholpen tijdens dit project. 🙏🏻
 * [Bas Pieren](https://github.com/BasPieren) Voor het halen van ☕.
 * [Daniel van de Velde](https://github.com/DanielvandeVelde) Voor de readme over de OBA api.
 * [Sterre van Geest](https://github.com/sterrevangeest/frontend-data/blob/master/data/index.js) Voor de code om totaal aantal boeken per genre op te halen. 
+
+## Bronnen
+De volgende bronnen heb ik gebruikt voor dit project :
+* Project is gebasseerd op [chord diagram](https://beta.observablehq.com/@mbostock/d3-chord-diagram)
+* Voor het begrijpen van de [matrix tabel](https://www.delimited.io/blog/2013/12/8/chord-diagrams-in-d3) zie afbeelding *Table of Hair Color Data*
+* Voorbeelden waar ik delen van heb gebruikt, [voorbeeld 1](https://jsfiddle.net/rjonean4/) [voorbeeld 2](https://jsfiddle.net/wcat76y1/5/)
+* Documentatie van de [Oba api](https://zoeken.oba.nl/api/v1/) 
 
 ## Licentie
 [MIT](https://choosealicense.com/licenses/mit/) © [Roene Verbeek](https://github.com/Roene)

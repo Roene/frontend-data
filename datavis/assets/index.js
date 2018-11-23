@@ -1,4 +1,11 @@
-// Genres, check de readme daar staat visueel hoe je dit uitleest. 
+/* ------ Bronnen
+Project gebasseerd op : https://beta.observablehq.com/@mbostock/d3-chord-diagram 
+https://jsfiddle.net/rjonean4/
+https://jsfiddle.net/wcat76y1/5/
+------ */
+
+// Dit is de data voor het aantal boeken per genre
+// Zie Readme voor het uitlezen van het matrix tabel
 var data = [
   [9962, 1196, 94, 93, 18],
   [1196, 9102, 11, 343, 169],
@@ -7,7 +14,7 @@ var data = [
   [18, 169, 32, 75, 4886]
 ]
 
-var updateData = [
+var dataUpdate = [
   [0, 1196, 94, 93, 18],
   [1196, 0, 11, 343, 169],
   [94, 11, 0, 138, 32],
@@ -17,170 +24,197 @@ var updateData = [
 
 var genres = ["Psychologischverhaal", "Thriller", "Detective", "Romantischverhaal", "Sciencefiction"]
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height"),
-    outerRadius = Math.min(width, height) * 0.5 - 40,
-    innerRadius = outerRadius - 30;
+//Bron https://jsfiddle.net/wcat76y1/5/
+var svg = d3.select("svg")
 
-// Zet getallen naar 1K ipv 1000
-var formatValue = d3.formatPrefix(",.0", 1e3);
+var width = +svg.attr("width")
 
-// Maak chord diagram
+var height = +svg.attr("height")
+
+var outerRadius = Math.min(width, height) * 0.5 - 40
+
+var innerRadius = outerRadius - 30
+
+// Bron https://beta.observablehq.com/@mbostock/d3-chord-diagram
+// Format voor getallen 1K ipv 1000
+var formatValue = d3.formatPrefix(",.0", 1e3)
+
 var chord = d3.chord()
     .padAngle(0.05)
-    .sortSubgroups(d3.ascending);
+    .sortSubgroups(d3.ascending)
 
-// Arc radius meegeven
+// Arc's (labels) en ribbons (chords) een radius meegeven
 var arc = d3.arc()
     .innerRadius(innerRadius)
-    .outerRadius(outerRadius);
-
-// Zet ribbons (ook wel chords genoemd)
+    .outerRadius(outerRadius)
+ 
 var ribbon = d3.ribbon()
-    .radius(innerRadius);
+    .radius(innerRadius)
+// Einde bron https://jsfiddle.net/wcat76y1/5/
 
-// Stel kleuren in voor elke arc 
 var color = d3.scaleOrdinal()
-    .range(["#ed0b0b", "#03aa24", "#f2ae04", "#1f03f1", "#e1ed04"]);
+    .range(["#ed0b0b", "#03aa24", "#f2ae04", "#1f03f1", "#e1ed04"])
+// Einde Bron https://beta.observablehq.com/@mbostock/d3-chord-diagram
 
-// De visualisatie wordt gemaakt binnen het <g> element
-// Alle coordinaten staan relatief aan het midden van de cirkel
+// Zet coordinaten relatief aan het midden van de cirkel
 var g = svg.append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-    .datum(chord(data));
 
-// Hier word elke "groep" gedefinieerd voor de arcs in het chord diagram
-var group = g.append("g")
-    .attr("class", "groups")
-  .selectAll("g")
-  .data(function(chords) { return chords.groups; })
-  .enter().append("g");
-
-// Hier worden de arc's gemaakt voor elke genre
-group.append("path")
-    .style("fill", function(d) { return color(d.index); })
-    .style("stroke", function(d) { return d3.rgb(color(d.index)).darker(); })
-    .attr("id", function(d, i) { return "group" + d.index; })
-    .attr("d", arc)
-    .on("mouseover", fade(.1))    // Bij een hover functie uitvoeren 
-    .on("mouseout", fade(1));
-
-group.append("title").text(function(d) {
-        return groupTip(d);
-});
-
-// Hier worden per arc de labels toegevoegd vanuit de array genres
-group.append("text")
-        .attr("x", 6)
-        .attr("dy", 15)
-      .append("textPath")
-        .attr("xlink:href", function(d) { return "#group" + d.index; })
-        .text(function(chords, i){return genres[i];})
-        .style("fill", "black");
-
-// Hier worden de ticks gemaakt voor elke arc, deze worden op basis van de data gemaakt
-// Ticks worden per 1000 weergegeven pas je de 1e3 aan naar 1e2 zie je meerdere ticks
-var groupTick = group.selectAll(".group-tick")
-  .data(function(d) { return groupTicks(d, 1e3); })
-  .enter().append("g")
-    .attr("class", "group-tick")
-    .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + outerRadius + ",0)"; });
-
-// Kleur en lengte van de lijntjes aan de buitenkant
-groupTick.append("line")
-    .attr("x2", 5)
-    .style("stroke", "#000")
-
-groupTick
-  .filter(function(d) { return d.value % 1e3 === 0; })
-  .append("text")
-    .attr("x", 8)
-    .attr("dy", ".35em")
-    .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180) translate(-16)" : null; })
-    .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-    .text(function(d) { return formatValue(d.value); });
-
-// Hier worden de ribbons gemaakt die van het ene genre naar andere genre lopen (en naar zichzelf) 
-// De kleur wordt meegegeven door het genre waar de ribbon naar toe loopt
+// Hier geef ik classes mee aan de g elementen
 var ribbons = g.append("g")
     .attr("class", "ribbons")
-  .selectAll("path")
-  .data(function(chords) { return chords; })
-  .enter().append("path")
-    .attr("d", ribbon)
-    .style("fill", function(d) { return color(d.target.index); })
-    .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); })
 
-// Als je me de muis over een ribbon gaat verschijnt hier een tekst door de functie chordTip
-ribbons.append("title").
-    text(function(d){return chordTip(d);});
+var group = g.append("g")
+    .attr("class", "groups")
 
-// Deze functie geeft een array van de tick richtingen en de waardes voor elke arc. 
-function groupTicks(d, step) {
-  var k = (d.endAngle - d.startAngle) / d.value;
-  return d3.range(0, d.value, step).map(function(value) {
-    return {value: value, angle: value * k + d.startAngle};
-  });
-}
-
-// Fade functie die wordt uitgevoerd bij een hover
-// Opacity van de arcs en ribbons waar over gehovert wordt gaat naar beneden. 
-function fade(opacity) {
-  return function(d, i) {
-    ribbons
-        .filter(function(d) {
-          return d.source.index != i && d.target.index != i;
-        })
-      .transition()
-        .style("opacity", opacity);
-  };
-}
-
-// Dit zorgt ervoor dat als hovert over een arc of ribbon je een tekst terug krijgt
-// hoeveel boeken er in een genre zit.
-function chordTip(d){
-  var j = d3.formatPrefix(",.0", 1e1)
-     return "Aantal boeken met genres:\n"
-        + genres[d.target.index] + " en " + genres[d.source.index] + ": " + j(d.source.value)
-}
-
-function groupTip(d) {
-        var j = d3.formatPrefix(",.0", 1e1)
-        return "Totaal aantal boeken met het genre " + genres[d.index] + ":\n" + j(d.value)
-}
-
-// Update functie 
+// Binnen deze functie wordt alles getekend
+// Als er op een button geklikt is, word deze functie uitgevoerd met
+// data of dataUpdate
 function update(data) {
-  var chords = chord(data);
+  var chords = chord(data)
 
   var ribbonsUpdate = ribbons.selectAll("path")
-    .data(chords, ({source, target}) => source.index + '-' + target.index)
+    .data(chords, ({source, target}) => source.index + " " + target.index)
 
-  var duration = 3000;
+  var groupUpdate = group.selectAll("g")
+    .data(chords.groups)
 
+  // var groupTickUpdate = group.selectAll(".group-tick")
+  //   .data(d  => groupTicks(d, 1e3))
+
+  // Duur van 2 seconde voor animatie instellen
+  var duration = 2000;
+
+// Ribbons (chords) worden getekend
   ribbonsUpdate
     .transition()
       .duration(duration)
-      .attr("d", ribbon)
-      .style("fill", function(d) { return color(d.target.index); })
-      .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); })
+        .attr("d", ribbon)
+        .style("fill", function(d) { return color(d.target.index) })
+        .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker() })
 
   ribbonsUpdate
     .enter()
       .append("path")
       .attr("opacity", 0)
       .attr("d", ribbon)
-      .style("fill", function(d) { return color(d.target.index); })
-      .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker(); })
+      .style("fill", function(d) { return color(d.target.index) })
+      .style("stroke", function(d) { return d3.rgb(color(d.target.index)).darker() })
       .transition()
         .duration(duration)
-        .attr('opacity', 1)
+        .attr("opacity", 1)
 
   ribbonsUpdate
     .exit()
       .transition()
         .duration(duration)
         .attr("opacity", 0)
-        .remove();
+        .remove()
+
+ // Arc's (labels) worden hier getekend
+  groupUpdate
+    .select("path")
+    .transition()
+      .duration(duration)
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.index) })
+      .style("stroke", function(d) { return d3.rgb(color(d.index)).darker() })
+
+  var groupUpdateGroup = groupUpdate.enter().append("g")
+
+  groupUpdateGroup
+    .append("path")
+      .attr("opacity", 0)
+      .attr("d", arc)
+      .attr("id", function(d, i) { return "group" + d.index })
+      .style("fill", function(d) { return color(d.index) })
+      .style("stroke", function(d) { return d3.rgb(color(d.index)).darker() })
+      .transition()
+        .duration(duration)
+        .attr("opacity", 1)
+
+// Bron https://jsfiddle.net/rjonean4/
+  groupUpdateGroup
+    .append("text")
+      .attr("x", 6)
+      .attr("dy", 15)
+      .append("textPath")
+      .attr("xlink:href", function(d) { return "#group" + d.index })
+      .text(function(chords, i){return genres[i]})
+      .style("fill", "black")
+      .transition()
+        .duration(duration)
+        .attr("opacity", 1)
+// Einde Bron https://jsfiddle.net/rjonean4/
+
+  groupUpdateGroup
+    .append("title")
+
+  groupUpdate
+    .select("title")
+    .text(function(d) {return "Totaal aantal boeken met het genre " + genres[d.index] + " " + (d.value) })
+
+  groupUpdate
+    .exit()
+      .transition()
+      .duration(duration)
+      .attr("opacity", 0)
+      .remove()
+
+// Ticks worden hier getekend (werkt nog niet)
+//   groupTickUpdate
+//     .selectAll("g")
+//     .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + outerRadius + ",0)" })
+//     .transition()
+//       .duration(duration)
+
+//   var groupTickUpdateGroup = groupTickUpdate.enter().append("g")
+//       .attr("class", "group-tick")
+
+//   groupTickUpdateGroup
+//     .append("line")
+//       .attr("x2", 5)
+//       .style("stroke", "#000")
+//       .transition()
+//         .duration(duration)
+//         .attr("opacity", 1)
+
+//   groupTickUpdateGroup
+//     .filter(function(d) { return d.value % 1e3 === 0; })
+//     .append("text")
+//       .attr("x", 8)
+//       .attr("dy", ".35em")
+//       .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180) translate(-16)" : null })
+//       .text(function(d) { return formatValue(d.value); })
+//       .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null })
+//       .transition()
+//         .duration(duration)
+//         .attr("opacity", 1)
+
+//   groupTickUpdate
+//     .exit()
+//       .transition()
+//         .duration(duration)
+//         .attr("opacity", 0)
+//         .remove()
+
+// // Bron https://beta.observablehq.com/@mbostock/d3-chord-diagram
+//   function groupTicks(d, step) {
+//     var k = (d.endAngle - d.startAngle) / d.value;
+//     return d3.range(0, d.value, step).map(function(value) {
+//       return {value: value, angle: value * k + d.startAngle};
+//     })
+//   }
+// Einde bron https://beta.observablehq.com/@mbostock/d3-chord-diagram
+}
+
+update(data)
+
+// Functie uitvoeren als er op een van de buttons wordt geklikt
+document.getElementById("doubleGenre").onclick = function(){ 
+  update(dataUpdate)
+}
+
+document.getElementById("reset").onclick = function(){ 
+  update(data)
 }

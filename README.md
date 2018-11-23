@@ -120,7 +120,7 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 
 *22-11-2018*
 * Ik heb interactie kunnen toevoegen alleen werken de ticks nu niet meer 😥😥
-* Ik heb een tooltip toegepast om het totaal aantal boeken te bekijken. De eerste keer werkt deze nog niet, zodra je op de button alleen dubbele genres hebt geklikt werkt deze wel.
+* Ik heb een tooltip toegepast om het totaal aantal boeken te bekijken. De eerste keer werkt deze nog niet, zodra je op de button alleen dubbele genres hebt geklikt werkt deze wel. De tooltip op de chords heb ik nog niet werkend gekregen.
 
 ## Werking
 Ik ben erachter gekomen hoe ik de data in kan laden : 

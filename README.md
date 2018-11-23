@@ -74,6 +74,8 @@ Na een kort gesprek met Laurens heb ik het idee voor de interactie aanpassen. De
 ![view2](images/view2.PNG)
 > Alleen dubbele genres
 
+De buitenkant van de chord, ook wel arc's / labels zijn het totaal aantal boeken binnen dit genre. De ribbons / labels zijn steeds het totaal aantal boeken met dubbele genres.
+
 ## Interessante charts
 Deze charts vond ik tot nu toe interessant om voor mijn idee te gebruiken en om de visualisatie interactief te maken.
 * Sunburst chart 📊
@@ -118,6 +120,7 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 
 *22-11-2018*
 * Ik heb interactie kunnen toevoegen alleen werken de ticks nu niet meer 😥😥
+* Ik heb een tooltip toegepast om het totaal aantal boeken te bekijken. De eerste keer werkt deze nog niet, zodra je op de button alleen dubbele genres hebt geklikt werkt deze wel.
 
 ## Werking
 Ik ben erachter gekomen hoe ik de data in kan laden : 

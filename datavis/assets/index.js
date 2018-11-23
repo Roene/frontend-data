@@ -79,9 +79,6 @@ function update(data) {
   var groupUpdate = group.selectAll("g")
     .data(chords.groups)
 
-  // var groupTickUpdate = group.selectAll(".group-tick")
-  //   .data(d  => groupTicks(d, 1e3))
-
   // Duur van 2 seconde voor animatie instellen
   var duration = 2000;
 
@@ -160,52 +157,6 @@ function update(data) {
       .duration(duration)
       .attr("opacity", 0)
       .remove()
-
-// Ticks worden hier getekend (werkt nog niet)
-//   groupTickUpdate
-//     .selectAll("g")
-//     .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + outerRadius + ",0)" })
-//     .transition()
-//       .duration(duration)
-
-//   var groupTickUpdateGroup = groupTickUpdate.enter().append("g")
-//       .attr("class", "group-tick")
-
-//   groupTickUpdateGroup
-//     .append("line")
-//       .attr("x2", 5)
-//       .style("stroke", "#000")
-//       .transition()
-//         .duration(duration)
-//         .attr("opacity", 1)
-
-//   groupTickUpdateGroup
-//     .filter(function(d) { return d.value % 1e3 === 0; })
-//     .append("text")
-//       .attr("x", 8)
-//       .attr("dy", ".35em")
-//       .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180) translate(-16)" : null })
-//       .text(function(d) { return formatValue(d.value); })
-//       .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null })
-//       .transition()
-//         .duration(duration)
-//         .attr("opacity", 1)
-
-//   groupTickUpdate
-//     .exit()
-//       .transition()
-//         .duration(duration)
-//         .attr("opacity", 0)
-//         .remove()
-
-// // Bron https://beta.observablehq.com/@mbostock/d3-chord-diagram
-//   function groupTicks(d, step) {
-//     var k = (d.endAngle - d.startAngle) / d.value;
-//     return d3.range(0, d.value, step).map(function(value) {
-//       return {value: value, angle: value * k + d.startAngle};
-//     })
-//   }
-// Einde bron https://beta.observablehq.com/@mbostock/d3-chord-diagram
 }
 
 update(data)

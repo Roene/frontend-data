@@ -6,6 +6,7 @@ Deze repo is voor het project frontend data. Hierin ga ik een interactieve datav
 * [Installatie](#installatie)
 * [Ideeën](#ideeën)
 * [Schetsen](#schetsen)
+* [Data](#data)
 * [Problemen](#problemen)
 * [Werking](#werking)
 * [Visualisatie](#visualisatie)
@@ -102,6 +103,86 @@ Dit is ook een tof voorbeeld van een [interactieve chord diagram](http://project
 
 ![schets4](images/schets4.jpg)
 > 2e Chord diagram
+
+## Data
+Door middel van de volgende code haal ik dat op uit de OBA api 
+```js
+client.get('search', {
+  q: 'format:book',
+  refine: true,
+  librarian: true
+})
+```
+* In de q geef ik mee dat ik alleen boeken wil ophalen.
+* Ik zet refine op zodat ik deze later mee kan geven. 
+
+```js
+  .then(results => JSON.parse(results))
+  .then(results => {
+    // Bron Sterre van Geest
+    client
+      .get("refine", {
+        rctx:
+          "AWNkYOZmYGcwzDfMKiouLTY1TKooNUrLLkzNLEysKMnIZGZk4MxNzMxjYGYQT8svyk0ssUrKz8@mBBGMzNKZ8UWpycUFqUUFiemprEYGTAwPzjHeKr9VznSvj4lR40gGIwMDe35SIgMDg6J$UX5$iX5OZmFpZoo$UIy9tCiHgTUvhxEA",
+        count: 100
+      })
+      .then(response => JSON.parse(response))
+      .then(response => {
+        let metadata = response.aquabrowser.facets.facet;
+        let genre_object = [];
+        let genreCounts = metadata.find(item => item.id == "Genre").value;
+        genreCounts = genreCounts.map(genre => {
+          return {
+            count: genre.count,
+            genre: genre.id
+          }
+        })
+        console.log(genreCounts)
+      })
+    })
+```
+* Met de rctx krijg ik de counts en resultaten van de facets terug, met behulp van de parameter count kan je dit lijstje uitbreiden tot bijvoorbeeld 100.
+* Vervolgens map ik over de metadata om de genres te zoeken. 
+
+Dit is dan het resultaat wat ik terug krijg :
+```
+[ { count: '2003', genre: 'avonturenroman' },
+  { count: '119', genre: 'bijbels-verhaal' },
+  { count: '944', genre: 'biografie' },
+  { count: '7411', genre: 'detective' },
+  { count: '2765', genre: 'dieren' },
+  { count: '296', genre: 'doktersverhaal' },
+  { count: '660', genre: 'erotiek' },
+  { count: '6', genre: 'experimentele-roman' },
+  { count: '5082', genre: 'familieroman' },
+  { count: '228', genre: 'feministisch-verhaal' },
+  { count: '111', genre: 'homofiel-thema' },
+  { count: '3747', genre: 'humor' },
+  { count: '4', genre: 'indisch-milieu' },
+  { count: '46', genre: 'islamitisch-milieu' },
+  { count: '10', genre: 'joods-milieu' },
+  { count: '650', genre: 'kinderleven' },
+  { count: '2370', genre: 'oorlog-en-verzet' },
+  { count: '403', genre: 'paarden-pony\'s' },
+  { count: '1500', genre: 'politieke-roman' },
+  { count: '2467', genre: 'protestants-milieu' },
+  { count: '11367', genre: 'psychologisch-verhaal' },
+  { count: '354', genre: 'racisme' },
+  { count: '7090', genre: 'romantisch-verhaal' },
+  { count: '1738', genre: 'school' },
+  { count: '5179', genre: 'science-fiction' },
+  { count: '2670', genre: 'sociaal-politiek-verhaal' },
+  { count: '395', genre: 'spionage' },
+  { count: '962', genre: 'sport' },
+  { count: '3073', genre: 'sprookjes' },
+  { count: '997', genre: 'streek-boeren-verhaal' },
+  { count: '7207', genre: 'stripverhaal' },
+  { count: '10815', genre: 'thriller' },
+  { count: '8675', genre: 'verhalenbundel' },
+  { count: '289', genre: 'western' },
+  { count: '503', genre: 'zeeverhaal' } ]
+  ``` 
+* Boeken met dubbele genres heb ik uit de oba interface gehaald.  
 
 ## Probelemen
 * Wat wil ik visualiseren?

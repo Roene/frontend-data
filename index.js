@@ -1,12 +1,12 @@
 require('dotenv').config()
-const OBA = require('oba-api');
+const OBA = require('oba-api')
 
 // Setup authentication to api server
 const client = new OBA({
   // ProQuest API Keys
   public: process.env.PUBLIC,
   secret: process.env.SECRET
-});
+})
 
 // General usage:
 // client.get({ENDPOINT}, {PARAMS});
@@ -39,8 +39,8 @@ client.get('search', {
           return {
             count: genre.count,
             genre: genre.id
-          };
-        });
-        console.log(genreCounts);
-      });
-    });
+          }
+        })
+        console.log(genreCounts)
+      })
+    })
